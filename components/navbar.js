@@ -16,7 +16,7 @@ fetch("components/navbar.html")
         if (e.key === "Enter") toggleMenu();
       });
 
-      // Dışarı tıklanınca menüyü kapat
+      // Dısarı tıklanınca menüyü kapat
       document.addEventListener("click", (e) => {
         if (!toggle.contains(e.target) && !links.contains(e.target)) {
           links.classList.remove("active");
