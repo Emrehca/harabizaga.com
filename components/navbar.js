@@ -1,4 +1,4 @@
-fetch("components/navbar.html")
+fetch("/components/navbar.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("navbar-placeholder").innerHTML = html;
@@ -6,7 +6,6 @@ fetch("components/navbar.html")
     const toggle = document.getElementById("menu-toggle");
     const links = document.getElementById("nav-links");
 
-    // Menü toggle
     if (toggle && links) {
       const toggleMenu = () => {
         links.classList.toggle("active");
@@ -16,7 +15,6 @@ fetch("components/navbar.html")
         if (e.key === "Enter") toggleMenu();
       });
 
-      // Dısarı tıklanınca menüyü kapat
       document.addEventListener("click", (e) => {
         if (!toggle.contains(e.target) && !links.contains(e.target)) {
           links.classList.remove("active");

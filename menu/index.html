@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Harabi & Zaga</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header id="navbar-placeholder"></header>
+
+  <main>
+    <section class="menu-display">
+      <!-- Kategori butonları -->
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab active" data-target="kahvaltiliklar">Kahvaltılıklar</button>
+        <button class="menu-tab" data-target="yiyecekler">Yiyecekler</button>
+        <button class="menu-tab" data-target="alkolsuzicecekler">Alkolsüz İçecekler</button>
+        <button class="menu-tab" data-target="alkoller">Alkoller</button>
+      </div>
+
+      <!-- Menü görselleri -->
+      <div class="menu-images">
+        <img src="../assets/kahvaltiliklar.png" id="kahvaltiliklar" class="menu-img active" alt="Kahvaltılıklar" />
+        <img src="../assets/yiyecekler.png" id="yiyecekler" class="menu-img" alt="Yiyecekler" />
+        <img src="../assets/alkolsuzicecekler.png" id="alkolsuzicecekler" class="menu-img" alt="Alkolsüz İçecekler" />
+        <img src="../assets/alkoller.png" id="alkoller" class="menu-img" alt="Alkoller" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Harabi & Zaga. All rights reserved.</p>
+  </footer>
+
+  <script src="../components/navbar.js"></script>
+
+  <script>
+    const tabs = document.querySelectorAll(".menu-tab");
+    const images = document.querySelectorAll(".menu-img");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const targetId = tab.getAttribute("data-target");
+        images.forEach(img => {
+          img.classList.remove("active");
+          if (img.id === targetId) img.classList.add("active");
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
